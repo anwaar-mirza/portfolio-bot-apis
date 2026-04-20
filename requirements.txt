@@ -1,0 +1,13 @@
+langchain
+langchain-huggingface
+langchain-community
+langchain-classic
+langchain-core
+langchain-pinecone
+pinecone
+sentence-transformers
+dotenv
+pypdf
+fastapi
+uvicorn
+python-multipart

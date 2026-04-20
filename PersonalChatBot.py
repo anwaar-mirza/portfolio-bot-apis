@@ -18,6 +18,7 @@ load_dotenv()
 
 os.environ['HF_TOKEN'] = os.getenv('HF_TOKEN')
 os.environ['PINECONE_API_KEY'] = os.getenv('PINECONE_API_KEY')
+os.environ['GROQ_API_KEY'] = os.getenv('GROQ_API_KEY')
 
 class PersonalChatBot:
     def __init__(self):
@@ -35,14 +36,11 @@ class PersonalChatBot:
         self.chain = self.create_final_chain()
 
     def create_model(self):
-        hf_endpoints = HuggingFaceEndpoint(
-            repo_id="Qwen/Qwen2.5-7B-Instruct",
-            max_new_tokens=512,
-            temperature=0.7,
-            top_p=0.9,
-            top_k=50
+        model = ChatGroq(
+            model='llama-3.1-8b-instant',
+            temperature=0.7
         )
-        return ChatHuggingFace(llm=hf_endpoints)
+        return model
 
     def create_embeddings(self):
         embeddings = HuggingFaceEmbeddings(

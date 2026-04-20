@@ -47,11 +47,11 @@ def chat(query: str = Query(..., description="User's message")):
     return ChatResponse(response=result)
 
 
-# Portfolio seedha root pe serve hoga
-@app.get("/")
-def serve_portfolio():
-    return FileResponse("./static/portfolio.html")
+# # Portfolio seedha root pe serve hoga
+# @app.get("/")
+# def serve_portfolio():
+#     return FileResponse("./static/portfolio.html")
 
 
-# Static files (CSS, JS, images agar future me add karo)
-app.mount("/static", StaticFiles(directory="./static"), name="static")
+# # Static files (CSS, JS, images agar future me add karo)
+# app.mount("/static", StaticFiles(directory="./static"), name="static")
